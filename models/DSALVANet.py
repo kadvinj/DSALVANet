@@ -110,7 +110,7 @@ class DSAMMultiBlock(nn.Module):
                 y_tl, x_tl, y_br, x_br = boxes_scaled[jdx_batch][idx_box]
                 y_tl, x_tl, y_br, x_br = int(y_tl), int(x_tl), int(y_br), int(x_br)
                 feat_box = feat[jdx_batch][:, y_tl : (y_br + 1), x_tl : (x_br + 1)] 
-                feat_box = F.adaptive_max_pool2d(feat_box, exemplar_pool_size, return_indices=False) # 变成(1,256,3,3)
+                feat_box = F.adaptive_max_pool2d(feat_box, exemplar_pool_size, return_indices=False) 
                 feat_boxes.append(feat_box)
             feat_boxes_tensor = torch.cat(feat_boxes, dim=0).contiguous().view(-1,feat.shape[1],feat_box.shape[-1],feat_box.shape[-1])               
             batch_feat_boxes.append(feat_boxes_tensor)
@@ -158,7 +158,7 @@ class DSAM(nn.Module):
 class Similarity_cal(nn.Module):  
     def __init__(self, pool, embed_dim, dropout, group=2):
         super().__init__()
-        assert pool[0] % 2 == 1 and pool[1] % 2 == 1 # poolsize为奇数
+        assert pool[0] % 2 == 1 and pool[1] % 2 == 1 
         self.pool = pool
         self.embed_dim = embed_dim
         self.dropout = nn.Dropout(dropout)
@@ -280,7 +280,7 @@ class MDM(nn.Module):
                                             dilation=(self.dilation, self.dilation)) 
         return out
 
-    # 带有膨胀率的padding，保持输入输出一致
+   
     def compute_padding(self):
         k = self.kernel_size
         d = self.dilation  
