@@ -1,15 +1,13 @@
 # DSALVANet
 
 This is the code for Few-Shot Object Counting with Dynamic Similarity-Aware in Latent Space.
-<center class="half">
-    <img src="./test_data/4297.jpg" width="300"/>
-    <img src="./output/output.jpg" width="300"/>
-</center>
-<center class="third">
-    <img src="./test_data/P0787.png" width="250"/>
-    <img src="./output/output1.jpg" width="250"/>
-    <img src="./output/output2.jpg" width="250"/>
-</center>
+<div align=center>
+    <img src="./test_data/4297.jpg" width="350"/><img src="./output/output.jpg" width="350"/>
+</div>
+
+<div align=center>
+    <img src="./test_data/P0787.png" width="300"/><img src="./output/output1.jpg" width="300"/><img src="./output/output2.jpg" width="300"/>
+</div>
 
 
 Dependencies
